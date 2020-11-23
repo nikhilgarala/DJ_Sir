@@ -77,18 +77,7 @@ class CarController extends Controller
                     $originalname = pathinfo($filenamewithextension, PATHINFO_FILENAME);
 
                     $filename = $originalname . "_" . uniqid() . "." . $file->getClientOriginalExtension();
-                    $file->move(public_path().'/photos/',$filename);
-
-                    $image[] = $filename;   
-            } 
-            foreach ($image as $img)
-            {
-                $photos = [
-                    'car_id' => $id,
-                    'image' => $img
-                ];
-                Photo::insert($photos);
-            }
+                   }
         }  
         return redirect()->back();
     }
